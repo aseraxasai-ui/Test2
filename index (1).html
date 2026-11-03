@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NaviShop — навигатор по магазину</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="start">
+<section id="welcome">
+  <div class="brand"><span style="display:flex;gap:8px"><button class="brandBtn" style="flex:none"><i class="mark">N</i>NaviShop</button><button class="sec aboutBtn" style="flex:none">О нас</button></span><button class="sec themeBtn" style="flex:none">🌙</button></div>
+  <h2>Где будем<br>делать покупки?</h2>
+  <p class="sub">Выберите магазин — покажем каталог, цены и путь каждому товару.</p>
+  <div id="welcomeList"></div>
+  <div class="feat"><div><span>🛍️</span>Каталог с фото и ценами</div><div><span>🧭</span>Путь по магазину</div><div><span>📷</span>Сканер штрихкодов</div><div><span>🧺</span>Список покупок</div></div>
+  <div class="stat" id="stat"></div>
+</section>
+<header>
+  <div class="row" style="align-items:center;gap:8px"><button id="back" class="brandBtn" style="flex:none" title="В главное меню"><i class="mark">N</i>NaviShop</button><button class="sec aboutBtn" style="flex:none">О нас</button><span style="flex:1"></span><button class="sec themeBtn" style="flex:none">🌙</button></div>
+  <div class="zone" id="curStore" style="margin-top:4px"></div>
+</header>
+<main>
+  <section id="tab-catalog">
+    <input id="q" type="search" placeholder="Поиск товара по названию…">
+    <div id="cats" class="tiles"></div>
+    <div id="prods" class="hide">
+      <div class="row" style="align-items:center;margin-top:10px"><button class="sec" id="catBack" style="flex:none">‹ Категории</button><b id="catTitle" style="flex:1;text-align:right"></b></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="tab-map" class="hide">
+    <div class="hint" id="mapHint">Выберите товар в каталоге и нажмите «Путь».</div>
+    <div class="card map"><svg id="svg" viewBox="0 0 300 360"></svg></div>
+  </section>
+
+  <section id="tab-scan" class="hide">
+    <button id="camBtn" style="width:100%;padding:14px">📷 Сканировать камерой</button>
+    <div id="camBox" class="hide card" style="margin-top:10px;padding:8px"><div class="camWrap"><video id="cam" playsinline muted></video><div class="frame"></div></div><button class="sec" id="camStop" style="width:100%;margin-top:8px">Остановить</button></div>
+    <div class="hint" id="camMsg"></div>
+    <div class="hint">Или введите штрихкод вручную:</div>
+    <input id="code" inputmode="numeric" placeholder="Штрихкод, например 4600001">
+    <div class="row" style="margin-top:8px">
+      <button id="scanBtn">Найти</button>
+      <button class="sec" id="rndBtn">Пример</button>
+    </div>
+    <div class="result" id="scanRes"></div>
+  </section>
+
+  <section id="tab-cart" class="hide">
+    <div id="cart"></div>
+    <div class="total" id="total"></div>
+  </section>
+</main>
+<nav id="nav">
+  <button data-t="catalog" class="on"><span>🛍️</span>Каталог</button>
+  <button data-t="map"><span>🧭</span>Карта</button>
+  <button data-t="scan"><span>📷</span>Скан</button>
+  <button data-t="cart"><span>🧺</span><b id="cnt">Корзина</b></button>
+</nav>
+
+<div id="about" class="hide">
+  <div class="aboutIn">
+    <button class="sec" id="aboutClose" style="flex:none">‹ Назад</button>
+    <h2>NaviShop</h2>
+    <p class="lead">Мобильное приложение, которое помогает покупателям быстро находить нужные товары в продуктовом магазине.</p>
+    <h3>Цель</h3>
+    <p>Сделать покупки быстрее, удобнее и проще: помочь находить товары и узнавать их цены.</p>
+    <h3>Что умеет</h3>
+    <ul><li>Выбор магазина и категории товара</li><li>Каталог с фотографиями и ценами</li><li>Поиск по названию</li><li>Навигатор: путь к товару внутри магазина</li><li>Сканер штрихкодов</li><li>Корзина со списком покупок и подсчётом суммы</li></ul>
+    <p class="note">Демо-версия: цены и наличие товаров условные.</p>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
